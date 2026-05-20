@@ -309,3 +309,57 @@ print("Inner Join Rows:", merged_df.shape[0])
 
 # LEFT JOIN:
 # Keeps all researchers even if they have no publications.
+
+# =========================================================
+# STEP 11: Answer 3 questions
+# =========================================================
+
+print("\n=== STEP 11: ANSWERING QUESTIONS ===")
+
+# QUESTION 1
+# Which researcher has highest citations?
+print("\nQuestion 1: Which researcher has the highest citations?")
+
+researcher_citations = (
+    merged_df
+    .groupby('researcher_id')['citations']
+    .sum()
+)
+top_researcher = (
+    researcher_citations
+    .idxmax()
+)
+print("Researcher with highest citations:", top_researcher)
+
+# QUESTION 2
+# Which field received highest funding?
+print("\nQuestion 2: Which field received the highest funding?")
+field_funding = (
+    merged_df
+    .groupby('field')['amount_cad']
+    .sum()
+)
+top_field = (
+    field_funding
+    .idxmax()
+)
+
+print("Field with highest funding:", top_field)
+
+# QUESTION 3
+# Earliest active researcher
+print("\nQuestion 3: Who is the earliest active researcher?")
+active_researchers = (
+    merged_df[
+        merged_df['is_active'] == True
+    ]
+)
+earliest_active = (
+    active_researchers
+    .sort_values('joined_year')
+    .iloc[0]
+)
+print("Earliest active researcher:"
+    , earliest_active['first_name']
+    , earliest_active['last_name']
+    )
