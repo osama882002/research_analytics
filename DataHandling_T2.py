@@ -215,3 +215,24 @@ if clean_secret in clean_title:
     print("Secret word is in the title!")
 else:
     print("Secret word is NOT in the title.")
+
+# =========================================================
+# STEP 7: CP3 FUNDING ANALYSIS
+# =========================================================    
+
+print("\n=== STEP 7: CP3 FUNDING ANALYSIS ===")
+
+# Sum funding amounts
+total_funding = (
+    df_funding['amount_cad']
+    .sum()
+)
+
+# Extract encoded year
+year = int(
+    str(int(total_funding))[:4]
+)
+
+print(f"Total Funding: ${int(total_funding):,}")
+print(f"Encoded Year: {year}")
+
