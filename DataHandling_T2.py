@@ -149,3 +149,33 @@ df_researchers = clean_researchers(df_researchers)
 df_publications = clean_publications(df_publications)
 df_funding = clean_funding(df_funding)
 
+# =========================================================
+# STEP 5: CP1 RESEARCHERS ANALYSIS
+# =========================================================
+
+print("\n=== STEP 5: CP1 RESEARCHERS ANALYSIS ===")
+
+# Sort researchers by joined year 
+sorted_researchers = (
+    df_researchers
+    .sort_values(
+    by='joined_year'
+    ,ascending=True
+    )
+    )
+
+# filter active researchers with h_index > 15
+filtered_researchers = (
+    sorted_researchers
+    .query('is_active and h_index > 15')
+    )
+
+# Extract first letter from last names
+secret_word = (
+    filtered_researchers['last_name']
+    .str[0]
+    .str.upper()
+    .str.cat()
+)
+
+print("Secret Word:", secret_word)
