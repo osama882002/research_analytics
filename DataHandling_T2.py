@@ -236,3 +236,25 @@ year = int(
 print(f"Total Funding: ${int(total_funding):,}")
 print(f"Encoded Year: {year}")
 
+
+# =========================================================
+# STEP 8: VALIDATE RELATIONSHIPS
+# =========================================================
+
+print("\n=== STEP 8: VALIDATING RELATIONSHIPS ===")
+
+# Check publication researcher IDs
+publication_check = (
+    df_publications['researcher_id']
+    .isin(df_researchers['researcher_id'])
+    .all()
+)
+print("All publication researcher IDs exist:", publication_check)
+
+# Check funding researcher IDs
+funding_check = (
+    df_funding['researcher_id']
+    .isin(df_researchers['researcher_id'])
+    .all()
+)
+print("All funding researcher IDs exist:", funding_check)
