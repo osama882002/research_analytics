@@ -137,3 +137,15 @@ print(df_funding.isnull().sum())
 
 print("\nDuplicate Rows:")
 print(df_funding.duplicated().sum())
+
+
+# =========================================================
+# STEP 4: CLEAN DATA
+# =========================================================
+
+print("\n=== STEP 3: CLEANING DATA ===")
+
+df_researchers = clean_researchers(df_researchers)
+df_publications = clean_publications(df_publications)
+df_funding = clean_funding(df_funding)
+
