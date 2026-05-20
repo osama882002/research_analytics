@@ -285,3 +285,27 @@ merged_df = pd.merge(
 print("Datasets merged successfully!")
 
 print("\nMerged Dataset Shape:", merged_df.shape)
+
+
+# =========================================================
+# STEP 10: INNER JOIN VS LEFT JOIN
+# =========================================================
+
+print("\n=== STEP 10: INNER JOIN VS LEFT JOIN ===")
+
+# Left join researchers + publications
+left_join  = pd.merge(
+    df_researchers,
+    df_publications,
+    on='researcher_id',
+    how='left'
+)
+
+print("Left Join Rows:", left_join.shape[0])
+print("Inner Join Rows:", merged_df.shape[0])
+
+# INNER JOIN:
+# Keeps only matching rows.
+
+# LEFT JOIN:
+# Keeps all researchers even if they have no publications.
