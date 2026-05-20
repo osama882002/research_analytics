@@ -66,3 +66,74 @@ df_funding = pd.read_excel('data_row/funding.xlsx')
 
 print("Datasets loaded successfully!")
 
+# =========================================================
+# STEP 3: INITIAL EXPLORATION (EDA)
+# =========================================================
+
+print("\n=== STEP 2: EXPLORING DATASETS ===")
+
+# ==============Researchers Dataset=====================
+
+print("\n== Researchers Dataset ==")
+
+print("\nFirst 5 Rows:")
+print(df_researchers.head())
+
+print("\nDataset Shape:")
+print(df_researchers.shape)
+
+print("\nColumns:")
+print(df_researchers.columns)
+
+print("\nDataset Info:")
+print(df_researchers.info())
+
+print("\nMissing Values:")
+print(df_researchers.isnull().sum())
+
+print("\nDuplicate Rows:")
+print(df_researchers.duplicated().sum())
+
+# ===============Publications Dataset===================== 
+
+print("\n== Publications Dataset ==")
+
+print("\nFirst 5 Rows:")
+print(df_publications.head())
+
+print("\nDataset Shape:")
+print(df_publications.shape)
+
+print("\nColumns:")
+print(df_publications.columns)
+
+print("\nDataset Info:")
+print(df_publications.info())
+
+print("\nMissing Values:")
+print(df_publications.isnull().sum())
+
+print("\nDuplicate Rows:")
+print(df_publications.duplicated().sum())
+
+# ===============Funding Dataset=====================
+
+print("\n== Funding Dataset ==")
+
+print("\nFirst 5 Rows:")
+print(df_funding.head())
+
+print("\nDataset Shape:")
+print(df_funding.shape)
+
+print("\nColumns:")
+print(df_funding.columns)
+
+print("\nDataset Info:")
+print(df_funding.info())
+
+print("\nMissing Values:")
+print(df_funding.isnull().sum())
+
+print("\nDuplicate Rows:")
+print(df_funding.duplicated().sum())
